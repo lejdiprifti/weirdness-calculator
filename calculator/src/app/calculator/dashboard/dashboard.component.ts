@@ -8,15 +8,17 @@ import { GifService } from 'src/app/service/gif.service';
 })
 export class DashboardComponent implements OnInit {
 
+  data: any;
+
   constructor(private gifService: GifService) { }
 
   ngOnInit() {
-    this.getGIFbyPhrase()
+    this.data = {}
   }
-
-  getGIFbyPhrase(): void {
-    this.gifService.getByPhrase('spongebob').subscribe(res => {
-      
+  
+  search(phrase: string): void {
+    this.gifService.getByPhrase(phrase).subscribe(res => {
+      this.data = res.data[0].images.original.url
     }, err=> {
       console.log(err)
     })

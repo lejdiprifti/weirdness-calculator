@@ -10,9 +10,9 @@
       </p>
       <div class="searchBox">
         <span class="ui-float-label">
-          <input id="float-input" type="text" size="25" pInputText> 
+          <input id="float-input" type="text" size="25" #searchBox (keyup.enter)="search(searchBox.value)" pInputText> 
           <label for="float-input">Search for GIFs</label>
-          <button pButton label="Search"></button>
+          <button pButton (click)="search(searchBox.value)"  label="Search"></button>
         </span>
       </div>
     </div>
@@ -20,10 +20,13 @@
     <!--The random GIF that shows up after searching-->
     <div class="randomGIF ui-g-10 ui-g-offset-2">
       <h1>Your Result</h1>
+      <div class="result">
+        <img id="selectedGif" src="{{data}}" alt="gif" />
+      </div>
     </div>
   </div>
   <!--The liked GIFS-->
   <div class="chosenGIFs ui-g-6">
-    Your Result
+    Your Likes
   </div>
 </div>
