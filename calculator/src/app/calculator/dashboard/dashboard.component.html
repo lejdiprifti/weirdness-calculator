@@ -1,18 +1,29 @@
-<div class="container">
-  <div class="select">
+<div class="container ui-g">
+  <div class="select ui-g-6 ui-g-nopad">
     <!--Description of the application-->
-    <div class="description">
-      <p>Find out how weird you are by selecting the GIFs that make you laugh </p>
-      <div>
-        <input pInputText type="text" placeholder="Search for GIF" />
-        <button pButton label="Search"></button>
+    <div class="description ui-g-10 ui-g-offset-2">
+      <p>Find out how weird you are by selecting the GIFs that make you laugh. We will show you the least
+        weird ones to start, but you can move the sliderto make them weirder.
+      </p>
+      <p>When you find a GIF you like, press the Like button. Once you like 5 GIFs 
+        we'll show you how weird you are.
+      </p>
+      <div class="searchBox">
+        <span class="ui-float-label">
+          <input id="float-input" type="text" size="25" pInputText> 
+          <label for="float-input">Search for GIFs</label>
+          <button pButton label="Search"></button>
+        </span>
       </div>
     </div>
+    <hr>
     <!--The random GIF that shows up after searching-->
-    <div class="randomGIF"></div>
+    <div class="randomGIF ui-g-10 ui-g-offset-2">
+      <h1>Your Result</h1>
+    </div>
   </div>
   <!--The liked GIFS-->
-  <div class="chosenGIFs">
-
+  <div class="chosenGIFs ui-g-6">
+    <h1>Your Liked GIFS</h1>
   </div>
 </div>

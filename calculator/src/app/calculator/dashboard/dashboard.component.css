@@ -1,0 +1,12 @@
+.container {
+    width: 100%;
+}
+
+.searchBox button {
+    margin-left: 1%;
+}
+
+p {
+    font-size: 18px;
+    text-align: justify;
+}
