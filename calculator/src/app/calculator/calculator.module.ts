@@ -4,8 +4,10 @@ import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ResultComponent } from './result/result.component';
 import { RouterModule } from '@angular/router';
-
-
+import {
+  ButtonModule,
+  InputTextModule
+} from 'primeng'
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { RouterModule } from '@angular/router';
     ResultComponent
   ],
   imports: [
+    InputTextModule,
+    ButtonModule,
     RouterModule,
     CommonModule
   ]
