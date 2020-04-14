@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { CalculatorModule } from './calculator/calculator.module';
 import { CalculatorRoutingModule } from './calculator/calculator-routing.module';
 import { Router } from '@angular/router';
+import { GifService } from './service/gif.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
    declarations: [
@@ -15,9 +17,12 @@ import { Router } from '@angular/router';
       BrowserModule,
       CalculatorModule,
       CalculatorRoutingModule,
-      AppRoutingModule
+      AppRoutingModule,
+      HttpClientModule
    ],
-   providers: [],
+   providers: [
+      GifService
+   ],
    bootstrap: [
       AppComponent
    ]
