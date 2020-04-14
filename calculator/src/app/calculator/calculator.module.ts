@@ -6,8 +6,10 @@ import { ResultComponent } from './result/result.component';
 import { RouterModule } from '@angular/router';
 import {
   ButtonModule,
-  InputTextModule
+  InputTextModule,
+  SliderModule
 } from 'primeng'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import {
     InputTextModule,
     ButtonModule,
     RouterModule,
-    CommonModule
+    CommonModule,
+    SliderModule,
+    FormsModule
   ]
 })
 export class CalculatorModule { }

@@ -10,3 +10,12 @@ p {
     font-size: 18px;
     text-align: justify;
 }
+
+:host ::ng-deep .slider {
+    margin-top: 2% ; 
+    width: 100%;
+}
+
+.result {
+    text-align: center;
+}

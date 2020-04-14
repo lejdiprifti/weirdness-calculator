@@ -10,12 +10,19 @@ export class GifService {
   
   private options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
   
-  private params = new HttpParams().append('api_key', API_KEY).append('limit', '1')
-
 constructor(private httpClient: HttpClient) {}
 
   public getByPhrase(phrase: string): Observable<any>{
-    this.params = this.params.append('q', phrase)
-    return this.httpClient.get(BASE_URL + 'search',  { params: this.params })
+    let params = new HttpParams().append('api_key', API_KEY).append('limit', '1')
+    params = params.append('q', phrase)
+    
+    return this.httpClient.get(BASE_URL + 'search',  { params: params })
+  }
+
+  public getByPhraseAndWeirdness(phrase: string, weirdness: number): Observable<any>{
+    let params = new HttpParams().append('api_key', API_KEY).append('limit', '1')
+    params = params.append('s', phrase).append('weirdness', weirdness.toString())
+    
+    return this.httpClient.get(BASE_URL + 'translate', { params: params })
   }
 }
