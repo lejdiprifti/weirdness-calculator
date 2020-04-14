@@ -16,6 +16,20 @@ p {
     width: 100%;
 }
 
+#selectedGif {
+    width: 100%;
+}
+
 .result {
+    text-align: center;
+}
+
+.likedGIF {
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.chosenGIFs h1, .randomGIF h1 {
+    font-family: Adventure;
     text-align: center;
 }

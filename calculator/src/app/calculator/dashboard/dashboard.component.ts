@@ -11,10 +11,12 @@ export class DashboardComponent implements OnInit {
   data: any;
   weirdness: number;
   phrase: string;
+  myLikes: Set<string>;
   constructor(private gifService: GifService) { }
 
   ngOnInit() {
     this.data = {}
+    this.myLikes = new Set()
     this.weirdness = 0
   }
 
@@ -27,12 +29,16 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  searchForWeirdness() {
+  searchForWeirdness(): void {
     this.gifService.getByPhraseAndWeirdness(this.phrase, this.weirdness).subscribe(res => {
       this.data = res.data.images.original.url
     }, err => {
       console.log(err)
     })
+  }
+
+  like(): void {
+    this.myLikes.add(this.data)
   }
 
 }

@@ -24,7 +24,7 @@
         <div class="ui-g-12">
           <img id="selectedGif" src="{{data}}" alt="gif" />
         </div>
-        <button pButton label="Like" class="like btn btn-info"></button>
+        <button pButton label="Like" icon="fa fa-thumbs-up" (click)="like()" class="like btn btn-info"></button>
         <p-slider id="slider" [min]="0" [max]="10" [(ngModel)]="weirdness" (onSlideEnd)="searchForWeirdness()" styleClass="slider"></p-slider>
         <p>Weirdness level: {{weirdness}}</p>
       </div>
@@ -32,6 +32,11 @@
   </div>
   <!--The liked GIFS-->
   <div class="chosenGIFs ui-g-6">
-    Your Likes
+    <h1>Your Likes</h1>
+    <div *ngFor="let likedGIF of myLikes">
+        <div class="ui-g-6">
+          <img class="likedGIF" src="{{likedGIF}}" alt="GIF" />
+        </div>
+    </div>
   </div>
 </div>
