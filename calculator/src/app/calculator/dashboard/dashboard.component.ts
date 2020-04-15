@@ -11,7 +11,6 @@ import { LoggerService } from 'src/app/service/logger.service';
 })
 export class DashboardComponent implements OnInit {
 
-  data: any;
   weirdness: number;
   phrase: string;
   myLikes: Array<LikedGif>;
@@ -19,7 +18,6 @@ export class DashboardComponent implements OnInit {
   constructor(private gifService: GifService, private router: Router, private logger: LoggerService) { }
 
   ngOnInit() {
-    this.data = {}
     this.myLikes = []
     this.gif = {}
     this.weirdness = 0
