@@ -20,9 +20,9 @@
     <!--The random GIF that shows up after searching-->
     <div class="randomGIF ui-g-10 ui-g-offset-2">
       <h1>Your Result</h1>
-      <div class="result" *ngIf="data.length > 0">
+      <div class="result" *ngIf="gif.url">
         <div class="ui-g-12">
-          <img id="selectedGif" src="{{data}}" alt="gif" />
+          <img id="selectedGif" src="{{gif.url}}" alt="gif" />
         </div>
         <button pButton label="Like" icon="fa fa-thumbs-up" (click)="like()" class="like btn btn-info"></button>
         <p-slider id="slider" [min]="0" [max]="10" [(ngModel)]="weirdness" (onSlideEnd)="searchForWeirdness()" styleClass="slider"></p-slider>
@@ -35,7 +35,8 @@
     <h1>Your Likes</h1>
     <div *ngFor="let likedGIF of myLikes">
         <div class="ui-g-6">
-          <img class="likedGIF" src="{{likedGIF}}" alt="GIF" />
+          {{likedGIF.title}}
+          <img class="likedGIF" src="{{likedGIF.url}}" alt="GIF" />
         </div>
     </div>
   </div>
