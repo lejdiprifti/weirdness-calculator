@@ -26,6 +26,7 @@ p {
 
 .gifDiv {
     width: 50%;
+    height: fit-content;
 }
 
 .likedGIF {
