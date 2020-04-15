@@ -40,6 +40,7 @@ export class DashboardComponent implements OnInit {
     if ( counter <= 4 ) {
       if ( this.myLikes.filter(el => el.phrase === this.gif.phrase).length === 0 ) {
         this.myLikes.push(this.gif)
+        this.logger.success('Success', 'Hahah that was funny! Let\'s search for another word now!')
       } else {
         this.logger.warning('Warning', 'You have already liked a GIF with this phrase! Please search for another phrase!')
       }

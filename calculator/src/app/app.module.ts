@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MessageService, ToastModule } from 'primeng';
 import { LoggerService } from './service/logger.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
    declarations: [
@@ -24,7 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       HttpClientModule,
       RouterModule,
       ToastModule,
-      BrowserAnimationsModule
+      BrowserAnimationsModule,
+      FontAwesomeModule
    ],
    providers: [
       GifService,

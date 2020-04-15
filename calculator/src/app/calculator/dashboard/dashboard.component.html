@@ -20,13 +20,15 @@
     <!--The random GIF that shows up after searching-->
     <div class="randomGIF ui-g-10 ui-g-offset-2">
       <h1>Your Result</h1>
-      <div class="result" *ngIf="gif.url">
+      <div class="result">
         <div class="ui-g-12">
-          <img id="selectedGif" src="{{gif.url}}" alt="gif" />
+          <img id="selectedGif" [src]="gif.url ? gif.url : 'assets/images/missingGif.png'" alt="{{gif.title}}" />
         </div>
-        <button pButton label="Like" icon="fa fa-thumbs-up" (click)="like()" class="like btn btn-info"></button>
-        <p-slider id="slider" [min]="0" [max]="10" [(ngModel)]="weirdness" (onSlideEnd)="searchForWeirdness()" styleClass="slider"></p-slider>
-        <p>Weirdness level: {{weirdness}}</p>
+        <div *ngIf="gif.url">
+          <button pButton label="Like" icon="fa fa-thumbs-up" (click)="like()" class="like btn btn-info"></button>
+          <p-slider id="slider" [min]="0" [max]="10" [(ngModel)]="weirdness" (onSlideEnd)="searchForWeirdness()" styleClass="slider"></p-slider>
+          <p>Weirdness level: {{weirdness}}</p>
+        </div>
       </div>
     </div>
   </div>
