@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
   searchForWeirdness(phrase?: string): void {
     this.phrase = phrase
     this.gifService.getByPhraseAndWeirdness(this.phrase, this.weirdness).subscribe(res => {
-      this.gif = this.createLikedGif(res)
+      this.gif = this.createLikedGifObject(res)
     }, err => {
       this.logger.error('Error', 'Could not get the GIF. Try again later!');
       
@@ -57,7 +57,7 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  createLikedGif(response: any): LikedGif {
+  createLikedGifObject(response: any): LikedGif {
     return {
       title: response.data.title,
       phrase: this.phrase,
