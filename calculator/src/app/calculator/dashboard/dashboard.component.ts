@@ -45,16 +45,17 @@ export class DashboardComponent implements OnInit {
         this.logger.warning('Warning', 'You have already liked a GIF with this phrase! Please search for another phrase!')
       }
       if (counter === 4) {
-        window.sessionStorage.setItem('likedGIFs', JSON.stringify(this.myLikes))
-        this.router.navigate(['result'])
+        window.sessionStorage.setItem('likedGIFs', JSON.stringify(this.myLikes));
+        this.router.navigate(['result']);
       }
     }
   }
 
   unlike(likedGIF: LikedGif): void {
-    const index: number = this.myLikes.indexOf(likedGIF)
+    const index: number = this.myLikes.indexOf(likedGIF);
     if (index !== -1) {
-      this.myLikes.splice(index, 1)
+      this.myLikes.splice(index, 1);
+      this.logger.info('Info', 'You unliked the GIF!');
     }
   }
 

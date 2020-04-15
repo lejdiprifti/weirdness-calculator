@@ -12,7 +12,7 @@
         <span class="ui-float-label">
           <input id="float-input" type="text" size="25" #searchBox (keyup.enter)="searchForWeirdness(searchBox.value)" pInputText> 
           <label for="float-input">Search for GIFs</label>
-          <button pButton (click)="searchForWeirdness(searchBox.value)"  label="Search"></button>
+          <button pButton (click)="searchForWeirdness(searchBox.value)" icon="fas fa-search" label="Search"></button>
         </span>
       </div>
     </div>
@@ -25,9 +25,9 @@
           <img id="selectedGif" [src]="gif.url ? gif.url : 'assets/images/missingGif.png'" alt="{{gif.title}}" />
         </div>
         <div *ngIf="gif.url">
-          <button pButton label="Like" icon="fa fa-thumbs-up" (click)="like()" class="like btn btn-info"></button>
+          <button pButton label="Like" icon="fas fa-heart" (click)="like()" class="like btn btn-info"></button>
           <p-slider id="slider" [min]="0" [max]="10" [(ngModel)]="weirdness" (onSlideEnd)="searchForWeirdness()" styleClass="slider"></p-slider>
-          <p>Weirdness level: {{weirdness}}</p>
+          <span class="badge badge-primary">Weirdness level: {{weirdness}}</span>
         </div>
       </div>
     </div>
@@ -35,6 +35,9 @@
   <!--The liked GIFS-->
   <div class="chosenGIFs ui-g-6">
     <h1>Your Likes</h1>
+    <div class="alert alert-dark" *ngIf="myLikes.length === 0" role="alert">
+      You haven't liked any GIF till now! What are you waiting for?!
+    </div>
     <div class="gifDiv ui-g-6" *ngFor="let likedGIF of myLikes">
         <span>
           <h5>{{likedGIF.title}}</h5>
