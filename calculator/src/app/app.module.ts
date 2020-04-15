@@ -8,6 +8,9 @@ import { CalculatorRoutingModule } from './calculator/calculator-routing.module'
 import { Router, RouterModule } from '@angular/router';
 import { GifService } from './service/gif.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MessageService, ToastModule } from 'primeng';
+import { LoggerService } from './service/logger.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
    declarations: [
@@ -19,10 +22,14 @@ import { HttpClientModule } from '@angular/common/http';
       CalculatorRoutingModule,
       AppRoutingModule,
       HttpClientModule,
-      RouterModule
+      RouterModule,
+      ToastModule,
+      BrowserAnimationsModule
    ],
    providers: [
-      GifService
+      GifService,
+      LoggerService,
+      MessageService
    ],
    bootstrap: [
       AppComponent

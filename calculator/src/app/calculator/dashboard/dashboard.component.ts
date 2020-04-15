@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GifService } from 'src/app/service/gif.service';
 import { LikedGif } from 'src/app/models/liked-gif';
 import { Router } from '@angular/router';
+import { LoggerService } from 'src/app/service/logger.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +16,7 @@ export class DashboardComponent implements OnInit {
   phrase: string;
   myLikes: Array<LikedGif>;
   gif: LikedGif;
-  constructor(private gifService: GifService, private router: Router) { }
+  constructor(private gifService: GifService, private router: Router, private logger: LoggerService) { }
 
   ngOnInit() {
     this.data = {}
@@ -29,7 +30,8 @@ export class DashboardComponent implements OnInit {
     this.gifService.getByPhraseAndWeirdness(this.phrase, this.weirdness).subscribe(res => {
       this.gif = this.createLikedGif(res)
     }, err => {
-      console.log(err)
+      this.logger.error('Error', 'Could not get the GIF. Try again later!');
+      
     })
   }
 
@@ -39,7 +41,7 @@ export class DashboardComponent implements OnInit {
       if ( this.myLikes.filter(el => el.phrase === this.gif.phrase).length === 0 ) {
         this.myLikes.push(this.gif)
       } else {
-        console.log('Choose another one. The phrase is taken!')
+        this.logger.warning('Warning', 'You have already liked a GIF with this phrase! Please search for another phrase!')
       }
       if (counter === 4) {
         window.sessionStorage.setItem('likedGIFs', JSON.stringify(this.myLikes))
