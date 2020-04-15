@@ -24,12 +24,32 @@ p {
     text-align: center;
 }
 
-.likedGIF {
-    width: 100%;
-    margin-bottom: 5%;
+.gifDiv {
+    height: fit-content;
 }
 
-.chosenGIFs h1, .randomGIF h1 {
+.likedGIF {
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.chosenGIFs h1, .randomGIF h1, h5 {
     font-family: Adventure;
     text-align: center;
+}
+
+.calculate {
+    margin-left: 35%;
+}
+
+.close {
+    width: 16px;
+    float:right;
+    position: relative;
+    top: 18px;
+    right: 5px;
+}
+
+.close:hover {
+    cursor: pointer;
 }

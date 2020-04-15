@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GifService } from 'src/app/service/gif.service';
 import { LikedGif } from 'src/app/models/liked-gif';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,7 @@ export class DashboardComponent implements OnInit {
   phrase: string;
   myLikes: Array<LikedGif>;
   gif: LikedGif;
-  constructor(private gifService: GifService) { }
+  constructor(private gifService: GifService, private router: Router) { }
 
   ngOnInit() {
     this.data = {}
@@ -41,11 +42,27 @@ export class DashboardComponent implements OnInit {
   }
 
   like(): void {
-    if ( this.myLikes.filter(el => el.phrase === this.gif.phrase).length === 0 ) {
-      this.myLikes.push(this.gif)
+    const counter = this.myLikes.length
+    if ( counter < 4 ) {
+      if ( this.myLikes.filter(el => el.phrase === this.gif.phrase).length === 0 ) {
+        this.myLikes.push(this.gif)
+      } else {
+        console.log('Choose another one. The phrase is taken!')
+      }
     } else {
-      console.log('Choose another one. The phrase is taken!')
+      this.router.navigate(['result'])
     }
+  }
+
+  unlike(likedGIF: LikedGif): void {
+    const index: number = this.myLikes.indexOf(likedGIF)
+    if (index !== -1) {
+      this.myLikes.splice(index, 1)
+    }
+  }
+  
+  calculate(): void {
+    this.router.navigate(['result'])
   }
 
   createLikedGif(response: any): LikedGif {

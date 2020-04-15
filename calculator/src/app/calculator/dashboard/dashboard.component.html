@@ -33,11 +33,13 @@
   <!--The liked GIFS-->
   <div class="chosenGIFs ui-g-6">
     <h1>Your Likes</h1>
-    <div *ngFor="let likedGIF of myLikes">
-        <div class="ui-g-6">
-          {{likedGIF.title}}
-          <img class="likedGIF" src="{{likedGIF.url}}" alt="GIF" />
-        </div>
+    <div class="gifDiv ui-g-6" *ngFor="let likedGIF of myLikes">
+        <span>
+          <h5>{{likedGIF.title}}</h5>
+          <img src="assets/images/close.png" (click)="unlike(likedGIF)" class="close" alt="close"/>
+        </span>
+        <img class="likedGIF" src="{{likedGIF.url}}" alt="GIF" />
     </div>
+    <button pButton class="calculate btn btn-info" (click)="calculate()" [disabled]="myLikes.length !== 4" label="Calculate my weirdness"></button>
   </div>
 </div>
