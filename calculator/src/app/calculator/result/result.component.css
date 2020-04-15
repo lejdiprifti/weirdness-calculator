@@ -18,5 +18,14 @@ h1 {
 }
 
 .likedGIF {
- width: 50%;
+ width: 100%;
+}
+
+.likedGifDiv {
+    margin: 1%;
+}
+
+.calculateButton {
+    margin-left: 40%;
+    margin-bottom: 3%;
 }

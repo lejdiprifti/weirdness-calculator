@@ -24,16 +24,8 @@ export class DashboardComponent implements OnInit {
     this.weirdness = 0
   }
 
-  search(phrase: string): void {
+  searchForWeirdness(phrase?: string): void {
     this.phrase = phrase
-    this.gifService.getByPhraseAndWeirdness(phrase, 0).subscribe(res => {
-      this.gif = this.createLikedGif(res)
-    }, err=> {
-      console.log(err)
-    })
-  }
-
-  searchForWeirdness(): void {
     this.gifService.getByPhraseAndWeirdness(this.phrase, this.weirdness).subscribe(res => {
       this.gif = this.createLikedGif(res)
     }, err => {
@@ -43,15 +35,16 @@ export class DashboardComponent implements OnInit {
 
   like(): void {
     const counter = this.myLikes.length
-    if ( counter < 4 ) {
+    if ( counter <= 4 ) {
       if ( this.myLikes.filter(el => el.phrase === this.gif.phrase).length === 0 ) {
         this.myLikes.push(this.gif)
       } else {
         console.log('Choose another one. The phrase is taken!')
       }
-    } else {
-      window.sessionStorage.setItem('likedGIFs', JSON.stringify(this.myLikes))
-      this.router.navigate(['result'])
+      if (counter === 4) {
+        window.sessionStorage.setItem('likedGIFs', JSON.stringify(this.myLikes))
+        this.router.navigate(['result'])
+      }
     }
   }
 
@@ -60,11 +53,6 @@ export class DashboardComponent implements OnInit {
     if (index !== -1) {
       this.myLikes.splice(index, 1)
     }
-  }
-
-  calculate(): void {
-    window.sessionStorage.setItem('likedGIFs', JSON.stringify(this.myLikes))
-    this.router.navigate(['result'])
   }
 
   createLikedGif(response: any): LikedGif {

@@ -10,9 +10,9 @@
       </p>
       <div class="searchBox">
         <span class="ui-float-label">
-          <input id="float-input" type="text" size="25" #searchBox (keyup.enter)="search(searchBox.value)" pInputText> 
+          <input id="float-input" type="text" size="25" #searchBox (keyup.enter)="searchForWeirdness(searchBox.value)" pInputText> 
           <label for="float-input">Search for GIFs</label>
-          <button pButton (click)="search(searchBox.value)"  label="Search"></button>
+          <button pButton (click)="searchForWeirdness(searchBox.value)"  label="Search"></button>
         </span>
       </div>
     </div>
@@ -40,6 +40,5 @@
         </span>
         <img class="likedGIF" src="{{likedGIF.url}}" alt="GIF" />
     </div>
-    <button pButton class="calculate btn btn-info" (click)="calculate()" [disabled]="myLikes.length !== 4" label="Calculate my weirdness"></button>
   </div>
 </div>

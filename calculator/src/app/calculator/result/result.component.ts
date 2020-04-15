@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LikedGif } from 'src/app/models/liked-gif';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-result',
@@ -10,7 +11,7 @@ export class ResultComponent implements OnInit {
 
   myLikes: Array<LikedGif>;
   average: number;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.myLikes = []
@@ -28,6 +29,10 @@ export class ResultComponent implements OnInit {
       sum = sum + Number(el.weirdness)
     })
     this.average = sum / this.myLikes.length
+  }
+
+  calculateAgain(): void {
+    this.router.navigate(['dashboard'])
   }
 
 }

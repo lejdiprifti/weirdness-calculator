@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalculatorModule } from './calculator/calculator.module';
 import { CalculatorRoutingModule } from './calculator/calculator-routing.module';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { GifService } from './service/gif.service';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -18,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
       CalculatorModule,
       CalculatorRoutingModule,
       AppRoutingModule,
-      HttpClientModule
+      HttpClientModule,
+      RouterModule
    ],
    providers: [
       GifService

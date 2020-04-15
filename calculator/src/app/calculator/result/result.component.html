@@ -4,9 +4,10 @@
   </div>
   <div class="ui-g-12">
     <h1>The GIFs you liked</h1>
-    <div class="ui-g-3" *ngFor="let likedGIF of myLikes">
+    <div class="likedGifDiv ui-g-2 ui-g-nopad" *ngFor="let likedGIF of myLikes">
       <h5>{{likedGIF.title}}</h5>
       <img class="likedGIF" src="{{likedGIF.url}}" alt="GIF" />
     </div>
   </div>
+  <button pButton label="Calculate again" (click)="calculateAgain()" class="calculateButton btn btn-info"></button>
 </div>
