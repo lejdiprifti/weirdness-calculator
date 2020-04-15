@@ -50,6 +50,7 @@ export class DashboardComponent implements OnInit {
         console.log('Choose another one. The phrase is taken!')
       }
     } else {
+      window.sessionStorage.setItem('likedGIFs', JSON.stringify(this.myLikes))
       this.router.navigate(['result'])
     }
   }
@@ -60,8 +61,9 @@ export class DashboardComponent implements OnInit {
       this.myLikes.splice(index, 1)
     }
   }
-  
+
   calculate(): void {
+    window.sessionStorage.setItem('likedGIFs', JSON.stringify(this.myLikes))
     this.router.navigate(['result'])
   }
 

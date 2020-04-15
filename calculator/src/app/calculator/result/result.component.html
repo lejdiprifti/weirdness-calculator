@@ -1,3 +1,12 @@
-<p>
-  result works!
-</p>
+<div class="container ui-g">
+  <div class="result ui-g-12">
+    <p>You scored an {{average}} out of 10 on the weirdness scale!</p>
+  </div>
+  <div class="ui-g-12">
+    <h1>The GIFs you liked</h1>
+    <div class="ui-g-3" *ngFor="let likedGIF of myLikes">
+      <h5>{{likedGIF.title}}</h5>
+      <img class="likedGIF" src="{{likedGIF.url}}" alt="GIF" />
+    </div>
+  </div>
+</div>
